@@ -1,0 +1,150 @@
+:root {
+    --green: #354138;
+    --dark-green: #233328;
+    --beige: #C9ACA3;
+    --brown: #6B5151;
+    --dark-brown: #3A1F1F;
+}
+
+body {
+    background-color: var(--beige);
+    font-family: Pixelify Sans, arial;
+}
+
+.container {
+    background-color: var(--green);
+    display: block;
+    border-radius: 30px;
+    padding: 30px;
+    position: fixed;
+    top: 30px;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+}
+
+.top-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.title {
+    display: inline-block;
+    font-size: 50px;
+    background-color: var(--brown);
+    padding: 10px 25px;
+    border-radius: 40px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+    height: 200px;
+    margin-bottom: 40px;
+}
+
+.button-text {
+    font-family: Pixelify Sans, arial;
+    font-size: 50px;
+    color: white;
+    margin-top: -20px;
+    position: relative;
+    justify-self: center;
+}
+
+.rock-button,
+.paper-button,
+.scissors-button {
+    height: 180px;
+    width: 180px;
+    background-color: var(--brown);
+    border: 4px solid var(--dark-brown);
+    padding: 20px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.rock-button-image, 
+.paper-button-image,
+.scissors-button-image{
+   height: 130px;
+   object-fit: cover;
+}
+
+.scissors-button-image {
+    transform: rotate(135deg);
+}
+
+.actions-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 800px;
+}
+
+.move-image {
+    height: 90px;
+    margin-left: 40px;
+}
+
+.results-container {
+    font-size: 50px;
+    flex: 1;
+    color: var(--beige);
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    max-width: 300px;
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    font-size: 48px;
+}
+
+.buttons-container, .moves-container {
+    display: block;
+}
+
+.moves-container {
+    margin-left: 40px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-right: 50px;
+}
+
+.move {
+    display: flex;
+    align-items: center;
+}
+
+.score {
+    float: right;
+}
+
+.reset-score-button, 
+.auto-play-button {
+    background-color: var(--dark-green);
+    color: black;
+    border: none;
+    font-size: 30px;
+    font-family: Pixelify Sans, arial;
+    display: inline-block;
+    font-size: 40px;
+    height: 70px;
+    padding: 10px 30px;
+    justify-self: center;
+    align-items: center;
+    border-radius: 20px;
+    cursor: pointer;
+}

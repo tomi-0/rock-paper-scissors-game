@@ -11,6 +11,7 @@ const score = {
     losses: 0,
     ties: 0,
 }
+renderScore();
 
 // Added event listeners to each button
 rockElement.addEventListener('click', () => {
@@ -46,9 +47,9 @@ function generateComputerMove() {
 function renderScore() {
 	const resultElement = document.querySelector('.js-results-container');
 	resultElement.innerHTML = `
-		<div class="win-result">Wins: ${score.wins}</div>
-		<div class="loss-result">Losses: ${score.losses}</div>
-		<div class="tie-result">Ties: ${score.ties}</div>
+		<div class="win-result">Wins: <span class="score">${score.wins}</span></div>
+		<div class="loss-result">Losses: <span class="score">${score.losses}</span></div>
+		<div class="tie-result">Ties: <span class="score">${score.ties}</span></div>
 	`;
 }
 
@@ -61,11 +62,11 @@ function playGame(playerMove) {
 		const playerMoveImage = document.querySelector('.js-player-move');
 		const computerMoveImage = document.querySelector('.js-computer-move');
 		playerMoveImage.innerHTML = `
-			You
+			You:
 			<img class="move-image" src="images/${playerMove}.png">
 		`;
 		computerMoveImage.innerHTML = `
-			Computer
+			Computer:
 			<img class="move-image" src="images/${computerMove}.png">
 		`;
 
