@@ -158,8 +158,18 @@ body {
     transition: transform 0.2s, background-color 0.2s;
 }
 
+.stop-auto-play {
+    background-color: rgb(155, 33, 33);
+    color: white;
+}
+
 .reset-score-button:hover, 
 .auto-play-button:hover {
     transform: scale(1.1);
     background-color: #405045;
+}
+
+.stop-auto-play:hover {
+    transform: scale(1.1);
+    background-color: rgb(175, 61, 61);
 }

@@ -32,6 +32,33 @@ resetScoreElement.addEventListener('click', () => {
 	renderScore();
 })
 
+// starts autoplay mode
+let isAutoPlay = false;
+let autoPlayIntervalId;
+
+autoPlayElement.addEventListener('click', () => {
+	if (isAutoPlay) {
+		clearInterval(autoPlayIntervalId);
+		// chnage button back to normal
+		autoPlayElement.classList.remove('stop-auto-play');
+		autoPlayElement.innerHTML = 'Auto Play';
+		isAutoPlay = false;
+	} else {
+		isAutoPlay = true;
+		// play every 1 second
+		autoPlayIntervalId = setInterval( () => {
+		const playerMove = generateComputerMove();
+		playGame(playerMove);
+		}, 1000);
+
+		//change style of auto play button
+		autoPlayElement.innerHTML = 'Stop';
+		autoPlayElement.classList.add('stop-auto-play');
+	}
+	}
+);
+
+
 
 function generateComputerMove() {
     const randomNum = Math.random();
