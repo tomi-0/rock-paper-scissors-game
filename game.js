@@ -29,11 +29,33 @@ function generateComputerMove() {
     }
 }
 
+function renderScore() {
+	const resultElement = document.querySelector('.js-results-container');
+	resultElement.innerHTML = `
+		<div class="win-result">Wins: ${score.wins}</div>
+		<div class="loss-result">Losses: ${score.losses}</div>
+		<div class="tie-result">Ties: ${score.ties}</div>
+	`;
+}
+
 
 function playGame(playerMove) {
     const computerMove = generateComputerMove();
     console.log(computerMove);
-    
+
+		// adds images to webpage for each move played
+		const playerMoveImage = document.querySelector('.js-player-move');
+		const computerMoveImage = document.querySelector('.js-computer-move');
+		playerMoveImage.innerHTML = `
+			You
+			<img class="move-image" src="images/${playerMove}.png">
+		`;
+		computerMoveImage.innerHTML = `
+			Computer
+			<img class="move-image" src="images/${computerMove}.png">
+		`;
+
+		// process moves and displays result
     if (playerMove==='rock') {
         if (computerMove ==='rock') {
             console.log('tie');
@@ -63,7 +85,7 @@ function playGame(playerMove) {
     if (playerMove==='scissors') {
         if (computerMove ==='rock') {
             console.log('lose');
-            score.loses++;
+            score.losses++;
         } else if (computerMove === 'paper') {
             console.log('win');
             score.wins++;
@@ -73,4 +95,7 @@ function playGame(playerMove) {
         }
     }
     console.log(score);
+		
+		// re-renders score on webpage
+    renderScore();
 }
