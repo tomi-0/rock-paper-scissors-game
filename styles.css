@@ -63,6 +63,14 @@ body {
     padding: 20px;
     border-radius: 100px;
     cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.rock-button:hover,
+.paper-button:hover,
+.scissors-button:hover {
+    transform: scale(1.1);
+    background-color:#765d5d;
 }
 
 .rock-button-image, 
@@ -147,4 +155,11 @@ body {
     align-items: center;
     border-radius: 20px;
     cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.reset-score-button:hover, 
+.auto-play-button:hover {
+    transform: scale(1.1);
+    background-color: #405045;
 }
