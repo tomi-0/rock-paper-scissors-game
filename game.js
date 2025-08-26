@@ -1,13 +1,18 @@
+// Creting elements for all buttons onwebpage
 const rockElement = document.querySelector('.js-rock-button');
 const paperElement = document.querySelector('.js-paper-button');
 const scissorsElement = document.querySelector('.js-scissors-button');
+const resetScoreElement = document.querySelector('.js-reset-score-button')
+const autoPlayElement = document.querySelector('.js-auto-play-button')
 
+// score object to store score
 const score = {
     wins: 0,
     losses: 0,
     ties: 0,
 }
 
+// Added event listeners to each button
 rockElement.addEventListener('click', () => {
     playGame('rock');
 })
@@ -17,6 +22,15 @@ paperElement.addEventListener('click', () => {
 scissorsElement.addEventListener('click', () => {
     playGame('scissors');
 })
+
+// resets score back to 0
+resetScoreElement.addEventListener('click', () => {
+	score.wins = 0;
+	score.losses = 0;
+	score.ties = 0;
+	renderScore();
+})
+
 
 function generateComputerMove() {
     const randomNum = Math.random();
