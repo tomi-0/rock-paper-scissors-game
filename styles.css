@@ -9,18 +9,20 @@
 body {
     background-color: var(--beige);
     font-family: Pixelify Sans, arial;
+    padding: 0;
+    margin: 20px;
 }
 
 .container {
     background-color: var(--green);
     display: block;
+    align-self: center;
+    justify-self: center;
     border-radius: 30px;
     padding: 30px;
-    position: fixed;
-    top: 30px;
-    bottom: 30px;
-    left: 30px;
-    right: 30px;
+    position: relative;
+    width: 90%;
+    height: max-content;
 }
 
 .top-section {
@@ -104,6 +106,7 @@ body {
     justify-content: center;
     align-items: end;
     max-width: 300px;
+    flex-wrap: nowrap;
 }
 
 .bottom-section {
@@ -138,6 +141,7 @@ body {
 
 .score {
     float: right;
+    flex-wrap: nowrap;
 }
 
 .reset-score-button, 
@@ -145,13 +149,13 @@ body {
     background-color: var(--dark-green);
     color: black;
     border: none;
-    font-size: 30px;
+    font-size: 25px;
     font-family: Pixelify Sans, arial;
     display: inline-block;
     font-size: 40px;
-    height: 70px;
+    height: auto;
     padding: 10px 30px;
-    justify-self: center;
+    justify-items: center;
     align-items: center;
     border-radius: 20px;
     cursor: pointer;
@@ -172,4 +176,46 @@ body {
 .stop-auto-play:hover {
     transform: scale(1.1);
     background-color: rgb(175, 61, 61);
+}
+
+@media screen and (max-width: 1200px) {
+    
+    .main-content, .bottom-section {
+        display: inline-block;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .buttons-container {
+        display: inline-block;
+    }
+
+    .moves-container {
+        padding: 40px 0px;
+    }
+
+    .results-container {
+        padding: 50px;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+        position: static;
+        background-color: var(--green);
+        overflow: hidden;
+    }
+
+    .actions-container {
+        width: 500px;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .rock-button,
+    .paper-button,
+    .scissors-button {
+        transform: scale(0.8);
+    }
 }
