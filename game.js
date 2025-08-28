@@ -6,11 +6,10 @@ const resetScoreElement = document.querySelector('.js-reset-score-button')
 const autoPlayElement = document.querySelector('.js-auto-play-button')
 
 // score object to store score
-const score = {
-    wins: 0,
+const score = JSON.parse(localStorage.getItem('score')) || {
+		wins: 0,
     losses: 0,
-    ties: 0,
-}
+    ties: 0 }; 
 renderScore();
 
 // Added event listeners to each button
@@ -30,6 +29,7 @@ resetScoreElement.addEventListener('click', () => {
 	score.losses = 0;
 	score.ties = 0;
 	renderScore();
+	saveToStorage();
 })
 
 // starts autoplay mode
@@ -83,7 +83,6 @@ function renderScore() {
 
 function playGame(playerMove) {
     const computerMove = generateComputerMove();
-    console.log(computerMove);
 
 		// adds images to webpage for each move played
 		const playerMoveImage = document.querySelector('.js-player-move');
@@ -100,44 +99,41 @@ function playGame(playerMove) {
 		// process moves and displays result
     if (playerMove==='rock') {
         if (computerMove ==='rock') {
-            console.log('tie');
             score.ties++;
         } else if (computerMove === 'paper') {
-            console.log('lose');
             score.losses++;
         } else if (computerMove === 'scissors') {
-            console.log('win');
             score.wins++;
         }
     }
 
     if (playerMove==='paper') {
         if (computerMove ==='rock') {
-            console.log('win');
             score.wins++;
         } else if (computerMove === 'paper') {
-            console.log('tie');
             score.ties++;
         } else if (computerMove === 'scissors') {
-            console.log('lose');
             score.losses++;
         }
     }
 
     if (playerMove==='scissors') {
         if (computerMove ==='rock') {
-            console.log('lose');
             score.losses++;
         } else if (computerMove === 'paper') {
-            console.log('win');
             score.wins++;
         } else if (computerMove === 'scissors') {
-            console.log('tie');
             score.ties++;
         }
     }
-    console.log(score);
 		
 		// re-renders score on webpage
     renderScore();
+		
+		saveToStorage();
+}
+
+// saves score to local storgae 
+function saveToStorage() {
+	localStorage.setItem('score', JSON.stringify(score));
 }
